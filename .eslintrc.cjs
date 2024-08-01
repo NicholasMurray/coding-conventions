@@ -1,0 +1,81 @@
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+  ],
+  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
+  },
+  plugins: ["react-refresh"],
+  rules: {
+    "react-refresh/only-export-components": [
+      "warn",
+      { allowConstantExport: true },
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        selector: "variable",
+        types: ["boolean"],
+        format: ["PascalCase"],
+        prefix: ["is", "should", "has", "can", "did", "will"],
+      },
+      {
+        selector: "function",
+        format: ["camelCase"],
+        prefix: [
+          "get",
+          "set",
+          "fetch",
+          "update",
+          "handle",
+          "load",
+          "send",
+          "remove",
+          "delete",
+          "create",
+          "render",
+          "save",
+          "validate",
+        ],
+      },
+      {
+        selector: "typeLike",
+        format: ["PascalCase"],
+      },
+      {
+        selector: "interface",
+        format: ["PascalCase"],
+        prefix: ["I"],
+      },
+    ],
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-unused-vars": "warn",
+    "prefer-const": "error",
+    eqeqeq: ["error", "always"],
+    curly: ["error", "all"],
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-var": "error",
+    "prefer-arrow-callback": "error",
+    "no-duplicate-imports": "error",
+    "no-restricted-syntax": [
+      "error",
+      {
+        selector: "ForInStatement",
+        message: "for...in statements are not allowed.",
+      },
+      {
+        selector: "WithStatement",
+        message: "with statements are not allowed.",
+      },
+    ],
+  },
+};
